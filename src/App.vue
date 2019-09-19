@@ -52,14 +52,37 @@ export default {
       this.$nextTick(function() {
         // Change document title
         document.title = to.meta.title;
+        // setAriaCurrent in navigation only after focus management
+        this.setAriaCurrent();
       });
     }
   },
+  mounted() {
+    this.setAriaCurrent();
+  },
+  methods: {
+    setAriaCurrent() {
+      this.$nextTick(function() {
+        const app = this.$el;
+        const currents = app.querySelectorAll("[aria-current]");
+
+        if (currents) {
+          currents.forEach(current => {
+            current.removeAttribute("aria-current");
+          });
+        }
+
+        app.querySelectorAll(".router-link-exact-active").forEach(current => {
+          current.setAttribute("aria-current", "page");
+        });
+      });
+    }
+  }
 };
 </script>
 
 <style>
-.router-link-exact-active {
+nav [aria-current] {
   color: #000;
   text-decoration: none;
 }
