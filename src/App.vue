@@ -37,15 +37,24 @@ Vue.use(VueRouter);
 
 const router = new VueRouter({
   routes: [
-    { path: "/", component: Home },
-    { path: "/cat", component: Cat },
-    { path: "/hipster", component: Hipster },
-    { path: "/cupcake", component: Cupcake }
+    { path: "/", component: Home, meta: { title: 'Home | Ipsums of the World'} },
+    { path: "/cat", component: Cat, meta: { title: 'Cat Ipsum | Ipsums of the World'} },
+    { path: "/hipster", component: Hipster, meta: { title: 'Hipster Ipsum | Ipsums of the World'} },
+    { path: "/cupcake", component: Cupcake, meta: { title: 'Cupcake Ipsum | Ipsums of the World'} }
   ]
 });
 
 export default {
-  router
+  router,
+  watch: {
+    $route: function(to) {
+      // $nextTick = DOM updated
+      this.$nextTick(function() {
+        // Change document title
+        document.title = to.meta.title;
+      });
+    }
+  },
 };
 </script>
 
