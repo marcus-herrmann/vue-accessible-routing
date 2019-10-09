@@ -1,3 +1,13 @@
 <template>
-    <h1>Welcome!</h1>
+    <RouteHeading target-id="navigation">Welcome!</RouteHeading>
 </template>
+
+<script>
+    import RouteHeading from './RouteHeading';
+
+    export default {
+        components: {
+            RouteHeading
+        }
+    }
+</script>

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Cat Ipsum</h1>
+        <RouteHeading target-id="navigation">Cat Ipsum</RouteHeading>
         <p>Dont wait for the storm to pass, dance in the rain kick up litter decide to want nothing to do with my owner
             today demand to be let outside at once, and expect owner to wait for me as i think about it cat cat moo moo
             lick ears lick paws so make meme, make cute face but lick the other cats. Kitty poochy chase imaginary bugs,
@@ -10,3 +10,13 @@
         <a href="#0">Learn more about the origins of Cat Ipsum</a>
     </div>
 </template>
+
+<script>
+    import RouteHeading from './RouteHeading';
+
+    export default {
+        components: {
+            RouteHeading
+        }
+    }
+</script>

@@ -3,7 +3,7 @@
     <header>
       <span class="logo">Ipsums of the World</span>
     </header>
-    <nav>
+    <nav id="navigation" tabindex="-1" aria-label="Main Navigation">
         <ul class="nav">
           <li>
             <router-link to="/">Home</router-link>
@@ -32,6 +32,7 @@ import Home from "./components/Home.vue";
 import Cat from "./components/Cat.vue";
 import Hipster from "./components/Hipster.vue";
 import Cupcake from "./components/Cupcake.vue";
+import 'what-input';
 
 Vue.use(VueRouter);
 
@@ -54,6 +55,7 @@ export default {
         document.title = to.meta.title;
         // setAriaCurrent in navigation only after focus management
         this.setAriaCurrent();
+        this.focusRouteSkipLink();
       });
     }
   },
@@ -61,6 +63,13 @@ export default {
     this.setAriaCurrent();
   },
   methods: {
+    focusRouteSkipLink() {
+      const sL = document.querySelector('.routeSkipLink');
+
+      if (sL) {
+        sL.focus();
+      }
+    },
     setAriaCurrent() {
       this.$nextTick(function() {
         const app = this.$el;
@@ -82,6 +91,10 @@ export default {
 </script>
 
 <style>
+* {
+  box-sizing: border-box;
+}
+
 nav [aria-current] {
   color: #000;
   text-decoration: none;

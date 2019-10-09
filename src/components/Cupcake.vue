@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Cupcake Ipsum</h1>
+        <RouteHeading target-id="navigation">Cupcake Ipsum</RouteHeading>
         <p>Icing dessert soufflé lollipop chocolate bar sweet tart cake chupa chups. Soufflé marzipan jelly beans
             croissant toffee marzipan cupcake icing fruitcake. Muffin cake pudding soufflé wafer jelly bear claw sesame
             snaps marshmallow. Marzipan soufflé croissant lemon drops gingerbread sugar plum lemon drops apple pie
@@ -8,3 +8,14 @@
         <a href="#0">Learn more about the origins of Cupcake Ipsum</a>
     </div>
 </template>
+
+<script>
+    import RouteHeading from './RouteHeading';
+
+    export default {
+        components: {
+            RouteHeading
+        }
+    }
+</script>
+
